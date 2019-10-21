@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 int top=-1;
 int stack[20];
 void push(int arr)
@@ -24,6 +25,7 @@ int pop()
     printf("\nPopped Element:%d",stack[top]);
     top--;
     }
+    printf("\n\n");
     }
 void display()
 {
@@ -40,25 +42,35 @@ void display()
       printf("\t%d",stack[i]);
     }
     }
+    printf("\n\n");
 }
 main()
 {
-int i,n;
+int i,ch,num;
 int arr[20];
-printf("Enter Number of Elements:");
-scanf("%d",&n);
-if(n<=20)
+while(1)
 {
-for(i=0;i<n;i++)
-{
-    printf("\nEnter Element[%d]:",i+1);
-    scanf("%d",&arr[i]);
-    push(arr[i]);
-}
-for(i=0;i<n;i++)
-{
-display();
-pop();
-}
+    printf("1.Push\n");
+    printf("2.Pop\n");
+    printf("3.Display\n");
+    printf("4.Exit\n\n");
+    printf("Enter your choice:");
+    scanf("%d",&ch);
+    switch(ch)
+    {
+        case 1:
+            printf("Enter Element to Push:");
+            scanf("%d",&num);
+            push(num);
+            break;
+        case 2:
+            pop();
+            break;
+        case 3:
+            display();
+            break;
+        case 4:
+            exit(-1);
+    }
 }
 }
